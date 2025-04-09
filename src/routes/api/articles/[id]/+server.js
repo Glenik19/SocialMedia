@@ -68,7 +68,7 @@ export async function PUT({ params, request }) {
 
     values.push(id); // Add UUID to the values array for WHERE condition
 
-    const query = `UPDATE articles SET ${updates.join(', ')} WHERE id = ?`;
+    const query = `UPDATE articles  SET ${updates.join(', ')} WHERE id = ?`;
     const [result] = await connection.execute(query, values);
 
     await connection.end();
