@@ -16,7 +16,7 @@ export const actions = {
 				httpOnly: true,
 				sameSite: 'strict'
 			});
-			redirect(302, '/');
+			redirect(302, '/admin');
 		} else {
 			return {
 				success: false,
