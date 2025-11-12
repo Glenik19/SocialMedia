@@ -71,7 +71,8 @@
 						>{$translations.add_comment}</button>
 					</form>
 				</div>
+						</div>
+				</div>
 			</div>
-		</div>
-	{/each}
+		{/each}
 </div>
