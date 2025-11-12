@@ -1,12 +1,12 @@
 <script>
 	import { flip } from 'svelte/animate';
-
+	import { translations } from '$lib/i18n';
 	let { data } = $props();
 
 </script>
 
-<a href="/"><h1 class="text-5xl text-center text-gray-800 font-extrabold mt-12 mb-4">Social Media</h1></a>
-<p class="text-center text-gray-500 text-xl mb-10 px-4">Explore Bilder by category or see them all at once.</p>
+<a href="/"><h1 class="text-5xl text-center text-gray-800 font-extrabold mt-12 mb-4">{$translations.title}</h1></a>
+<p class="text-center text-gray-500 text-xl mb-10 px-4">{$translations.subtitle}</p>
 
 <div class="space-y-10 px-4 max-w-screen-xl mx-auto">
 	{#each data.articles as article (article.id)}
@@ -18,14 +18,15 @@
 				</div>
 
 			
-				<div class="w-full lg:w-1/2 p-6 flex flex-col justify-between space-y-5">
+<<<<<<< HEAD
+					<div class="w-full lg:w-1/2 p-6 flex flex-col justify-between space-y-5">
 					<div>
-						<p class="text-sm text-gray-500">Author:</p>
+						<p class="text-sm text-gray-500">{$translations.author}</p>
 						<p class="text-lg font-semibold text-gray-800 mb-2">{article.author}</p>
 						<p class="text-gray-700 text-sm mb-4">{article.description}</p>
 
 						<div class="flex items-center justify-between text-gray-700">
-							<span class="text-sm font-medium">Likes: {article.votes}</span>
+							<span class="text-sm font-medium">{$translations.likes}: {article.votes}</span>
 							<form action="?/like" method="POST" use:enhance>
 								<input type="hidden" name="id" value={article.id} />
 								<button type="submit" aria-label="like" class="w-11 h-10 hover:scale-110 transition-transform duration-200">
@@ -37,7 +38,7 @@
 
 					<!-- Comments Section -->
 					<div>
-						<h3 class="text-md font-bold text-gray-800 mb-2">Comments</h3>
+						<h3 class="text-md font-bold text-gray-800 mb-2">{$translations.comments_heading}</h3>
 						<div class="space-y-2 text-sm text-gray-600 max-h-32 overflow-y-auto pr-2">
 							{#each data.comments as comment}
 								<p>
@@ -50,7 +51,7 @@
 							<input type="hidden" name="article_id" value={article.id} />
 							
 							<div class="flex flex-col">
-								<label for="name" class="text-sm font-medium mb-1 text-gray-700">Your Name</label>
+								<label for="name" class="text-sm font-medium mb-1 text-gray-700">{$translations.your_name}</label>
 								<input
 									type="text"
 									name="name"
@@ -60,7 +61,7 @@
 							</div>
 
 							<div class="flex flex-col">
-								<label for="content" class="text-sm font-medium mb-1 text-gray-700">Your Comment</label>
+								<label for="content" class="text-sm font-medium mb-1 text-gray-700">{$translations.your_comment}</label>
 								<textarea
 									name="content"
 									required
@@ -71,7 +72,7 @@
 							<button
 								type="submit"
 								class="bg-blue-500 text-white px-4 py-2 rounded-md text-sm hover:bg-blue-600 transition-colors"
-							>Add Comment</button>
+							>{$translations.add_comment}</button>
 						</form>
 					</div>
 				</div>
